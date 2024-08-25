@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         System.out.println("Задача№1");
-        int[] payments = {235000, 260000, 390000, 220000, 370000};
+        int[] payments = {191000, 470000, 199000, 220000, 370000};
         int sum = 0;
         for (int i = 0; i < payments.length; i++) {
             sum = sum + payments[i];
@@ -11,18 +11,16 @@ public class Main {
         System.out.println();
         System.out.println("Задача№2");
         int maxPayments = 0;
-        int minPayments = -1;
         for (int i = 0; i < payments.length; i++) {
             if (payments[i] > maxPayments) {
                 maxPayments = payments[i];
             }
         }
         System.out.println("Максимальная сумма трат за неделю составила " + maxPayments + " рублей");
+        int minPayments = payments[0] + 1;
         for (int i = 0; i < payments.length - 1; i++) {
-            int current = payments[i];
-            int next = payments[i + 1];
-            if (current < next) {
-                minPayments = current;
+            if (payments[i] < minPayments) {
+                minPayments = payments[i];
             }
         }
         System.out.println("Минимальная сумма трат за неделю составила " + minPayments + " рублей");
@@ -42,14 +40,8 @@ public class Main {
         System.out.println();
         System.out.println("Задача№4");
         char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
-        int length = reverseFullName.length;
-        for (int i = 0; i < length / 2; i++) {
-            char cash = reverseFullName[i];
-            reverseFullName[i] = reverseFullName[length - 1 - i];
-            reverseFullName[length - 1 - i] = cash;
+        for (int i = reverseFullName.length - 1; i >= 0; i--) {
+            System.out.print(reverseFullName[i]);
         }
-        System.out.println(reverseFullName);
     }
-
-
 }
